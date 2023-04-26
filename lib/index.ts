@@ -141,6 +141,8 @@ export class Watermark {
           _coordinates = this.getCoordinates(isPortrait, coordinates);
         }
 
+        watermarkCanvas.applyTextStyles();
+
         const metrics = watermarkCanvas.context.measureText(text);
         const watermarkHeight =
           metrics.fontBoundingBoxAscent - metrics.fontBoundingBoxDescent;
@@ -162,7 +164,6 @@ export class Watermark {
         }
 
         // adding a watermark text
-        watermarkCanvas.applyTextStyles();
         watermarkCanvas.drawWatermarkText(text, _coordinates.x, _coordinates.y);
 
         return watermarkCanvas.result((blob) => resolve(blob));
