@@ -1879,9 +1879,8 @@
     const width = imageDimensions.width - watermarkDimensions.width;
     const centerVertically = height / 2;
     const centerHorizontally = width / 2;
-    console.log(watermarkDimensions.height);
     const verticalStartOrigin = watermarkIsText ? watermarkDimensions.height * 3 + 10 : 0;
-    const verticalEndOrigin = watermarkIsText ? height - watermarkDimensions.height * 2 : 0;
+    const verticalEndOrigin = watermarkIsText ? height - watermarkDimensions.height * 2 : height;
     const positions = {
       "top-left": { x: 0, y: verticalStartOrigin },
       "top-center": { x: centerHorizontally, y: verticalStartOrigin },
@@ -3225,7 +3224,6 @@
           if (coordinates && !position) {
             _coordinates = this.getCoordinates(isPortrait, coordinates);
           }
-          watermarkCanvas.applyTextStyles();
           const metrics = watermarkCanvas.context.measureText(text);
           const watermarkHeight = metrics.fontBoundingBoxAscent - metrics.fontBoundingBoxDescent;
           const watermarkWidth = metrics.width;
@@ -3243,6 +3241,7 @@
               watermarkIsText: true
             });
           }
+          watermarkCanvas.applyTextStyles();
           watermarkCanvas.drawWatermarkText(text, _coordinates.x, _coordinates.y);
           return watermarkCanvas.result((blob) => resolve(blob));
         };
