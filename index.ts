@@ -1,3 +1,6 @@
-import { Watermark } from './lib'
+import { Watermark } from "./lib";
 
-export default Watermark
+export * from "./lib/types/canvas";
+export * from "./lib/types/watermark";
+
+export default Watermark;
