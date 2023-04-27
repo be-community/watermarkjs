@@ -1,6 +1,6 @@
 {
   "name": "@be-tech/watermarkjs",
-  "version": "1.0.1-beta.0",
+  "version": "1.0.2-beta.0",
   "description": "Watermarked images in the browser",
   "type": "module",
   "main": "./dist/index",
