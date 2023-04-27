@@ -23,7 +23,7 @@ specifiers:
   jest-environment-jsdom: ^29.5.0
   jest-mock-fetch: ^2.0.5
   jsdom: ^21.1.1
-  node-fetch: '2'
+  node-fetch: 2.6.9
   prettier: ^2.8.8
   ts-jest: ^29.1.0
   ts-node: ^10.9.1
