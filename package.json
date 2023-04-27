@@ -23,7 +23,10 @@
     "watch:test": "jest --watchAll",
     "test": "jest",
     "dev": "npm run build -- --watch",
-    "build": "tsup index.ts"
+    "build": "tsup index.ts",
+    "lint": "pnpm lint:prettier && pnpm lint:eslint",
+    "lint:prettier": "prettier --write .",
+    "lint:eslint": "eslint --max-warnings=0 --fix ."
   },
   "author": "Be",
   "license": "MIT",
