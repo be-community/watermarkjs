@@ -13,7 +13,7 @@ export class WatermarkCanvas {
     const _textStyle = {
       weight: textStyle?.weight || "bold",
       family: textStyle?.family || "serif",
-      size: textStyle?.size || "100px",
+      size: textStyle?.size || "24px",
       color: textStyle?.color || "#000000",
       baseline: textStyle?.baseline || "middle",
     };
