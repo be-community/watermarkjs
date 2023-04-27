@@ -7,17 +7,19 @@ export default {
   automock: false,
   clearMocks: true,
   collectCoverage: true,
-  coverageDirectory: 'coverage',
-  coverageProvider: 'v8',
-  testEnvironment: 'jest-environment-jsdom',
+  coverageDirectory: "coverage",
+  coverageProvider: "v8",
+  testEnvironment: "jest-environment-jsdom",
   transform: {
-    '\\.[jt]sx?$': 'babel-jest',
-    '^.+\\.(ts|tsx)$': 'ts-jest',
-    '^.+\\.(js)$': 'babel-jest'
+    "\\.[jt]sx?$": "babel-jest",
+    "^.+\\.(ts|tsx)$": "ts-jest",
+    "^.+\\.(js)$": "babel-jest",
   },
-  transformIgnorePatterns: [
-  ],
-  setupFiles: ['jest-canvas-mock'],
-  setupFilesAfterEnv: ['./setup-test.ts'],
-  testEnvironmentOptions: { resources: 'usable', url: 'https://placehold.co/600x400' }
-}
+  transformIgnorePatterns: [],
+  setupFiles: ["jest-canvas-mock"],
+  setupFilesAfterEnv: ["./setup-test.ts"],
+  testEnvironmentOptions: {
+    resources: "usable",
+    url: "https://placehold.co/600x400",
+  },
+};
