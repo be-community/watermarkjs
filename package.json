@@ -24,7 +24,7 @@
     "test": "jest",
     "dev": "npm run build -- --watch",
     "build": "tsup index.ts",
-    "lint": "pnpm lint:prettier && pnpm lint:eslint",
+    "lint": "npm lint:prettier && npm lint:eslint",
     "lint:prettier": "prettier --write .",
     "lint:eslint": "eslint --max-warnings=0 --fix ."
   },

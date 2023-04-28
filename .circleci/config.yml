@@ -1,0 +1,46 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.1.0
+  codecov: codecov/codecov@3.2.4
+
+jobs:
+  tests:
+    docker:
+      - image: circleci/node:16.17.1-browsers
+    steps:
+      - checkout
+      - node/install-npm
+      - run:
+          name: Show node version
+          command: node --version
+      - node/install-packages
+      - run:
+          name: Run lint check
+          command: npm run lint
+      - run:
+          name: Run unit tests with coverage
+          command: npm run cover
+      - codecov/upload:
+          file: coverage/*.json
+  versioning:
+    docker:
+      - image: circleci/node:16.17.1
+    steps:
+      - checkout
+      - run:
+          name: Check package version
+          command: node scripts/check-version morricedev autoescola-nardini main
+
+workflows:
+  ci:
+    jobs:
+      - tests
+      - versioning:
+          filters:
+            branches:
+              ignore: 
+                - main
+                - dev
+            tags:
+              ignore: /.*/
