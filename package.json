@@ -1,6 +1,6 @@
 {
   "name": "@be-tech/watermarkjs",
-  "version": "1.0.2-beta.0",
+  "version": "1.0.2-beta.1",
   "description": "Watermarked images in the browser",
   "type": "module",
   "main": "./dist/index",
@@ -22,9 +22,9 @@
   "scripts": {
     "watch:test": "jest --watchAll",
     "test": "jest",
-    "dev": "npm run build -- --watch",
+    "dev": "pnpm build -- --watch",
     "build": "tsup index.ts",
-    "lint": "npm lint:prettier && npm lint:eslint",
+    "lint": "pnpm lint:prettier && pnpm lint:eslint",
     "lint:prettier": "prettier --write .",
     "lint:eslint": "eslint --max-warnings=0 --fix ."
   },

@@ -7,30 +7,46 @@ orbs:
 jobs:
   tests:
     docker:
-      - image: circleci/node:16.17.1-browsers
+      - image: cimg/node:16.17.1-browsers
     steps:
       - checkout
-      - node/install-npm
+      - restore_cache:
+          name: Restore pnpm Package Cache
+          keys:
+            - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
+      - run:
+          name: Install pnpm package manager
+          command: |
+            sudo corepack enable
+            sudo corepack prepare pnpm@latest --activate
       - run:
           name: Show node version
           command: node --version
-      - node/install-packages
+      - run:
+          name: Install Dependencies
+          command: |
+            pnpm install
+      - save_cache:
+          name: Save pnpm Package Cache
+          key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
+          paths:
+            - node_modules
       - run:
           name: Run lint check
           command: npm run lint
       - run:
           name: Run unit tests with coverage
-          command: npm run cover
+          command: npm run test
       - codecov/upload:
           file: coverage/*.json
   versioning:
     docker:
-      - image: circleci/node:16.17.1
+      - image: cimg/node:16.17.1
     steps:
       - checkout
       - run:
           name: Check package version
-          command: node scripts/check-version morricedev autoescola-nardini main
+          command: node tools/check-version be-community watermarkjs main
 
 workflows:
   ci:

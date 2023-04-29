@@ -1,5 +1,7 @@
-const https = require("https");
-const currentVersion = require("../package.json").version;
+import https from 'https'
+import packageJson from '../package.json' assert { type: "json" };
+
+const currentVersion = packageJson.version;
 
 const myArgs = process.argv.slice(2);
 const org = myArgs[0];

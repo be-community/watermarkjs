@@ -51,7 +51,7 @@ it("should apply default text styles into canvas", () => {
   expect(sut).toBeInstanceOf(WatermarkCanvas);
   expect(sut.context.fillStyle).toBe("#000000");
   expect(sut.context.textBaseline).toBe("middle");
-  expect(sut.context.font).toBe("bold 100px serif");
+  expect(sut.context.font).toBe("bold 24px serif");
 });
 
 it("should apply custom text styles into canvas", () => {
