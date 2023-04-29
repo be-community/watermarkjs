@@ -18,7 +18,7 @@ jobs:
           name: Install pnpm package manager
           command: |
             sudo corepack enable
-            sudo corepack prepare pnpm --activate
+            sudo corepack prepare pnpm@latest --activate
       - run:
           name: Show node version
           command: node --version
