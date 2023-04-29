@@ -1,3 +1,6 @@
+![CircleCI](https://img.shields.io/circleci/build/github/be-community/watermarkjs)
+![Codecov](https://img.shields.io/codecov/c/github/be-community/watermarkjs)
+
 # Watermark.js
 
 Watermark.js is a lightweight library for adding watermarks to images in the browser using the HTML5 Canvas API. This library supports both image and text watermarks and can apply multiple watermarks using the same watermark instance.
